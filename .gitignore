@@ -1,12 +1,43 @@
-# Python-generated files
+# Environment variables — never commit your API key
+.env
+.env.*
+
+# Python
 __pycache__/
-*.py[oc]
-build/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
 dist/
+build/
+eggs/
+parts/
+var/
+sdist/
 wheels/
-*.egg-info
+pip-wheel-metadata/
+*.so
+
+# uv
+.venv/
+uv.lock  # optional: some teams commit this, some don't
 
 # Virtual environments
-.venv
+venv/
+env/
+ENV/
 
-.env
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Google Cloud
+.gcloudignore
+
+# ADK
+__adk_state__/
