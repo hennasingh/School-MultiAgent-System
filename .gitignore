@@ -41,3 +41,7 @@ ENV/
 
 # ADK
 __adk_state__/
+
+# ADK local session data
+.adk/
+session.db
