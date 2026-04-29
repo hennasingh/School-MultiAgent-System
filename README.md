@@ -133,3 +133,47 @@ Then open [http://localhost:8000](http://localhost:8000) in your browser, select
 | `GOOGLE_API_KEY` | Your Google AI Studio API key |
 
 ---
+
+## Deploying to Cloud Run
+ 
+> **Note:** Billing must be enabled on your Google Cloud project for deployment to work.
+ 
+### Prerequisites
+ 
+- [Google Cloud CLI](https://cloud.google.com/sdk/docs/install) installed and authenticated
+- A Google Cloud project with billing enabled
+
+
+### 1. Authenticate and set project
+ 
+```bash
+gcloud auth login
+gcloud config set project YOUR_PROJECT_ID
+```
+ 
+### 2. Enable required APIs
+ 
+```bash
+gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com aiplatform.googleapis.com
+```
+ 
+### 3. Deploy
+ 
+From the `School-Multi-Agent-System/` directory:
+ 
+```bash
+uv run adk deploy cloud_run \
+  --project=YOUR_PROJECT_ID \
+  --region=europe-west1 \
+  --service_name=school-agent-service \
+  --with_ui \
+  school_agent
+```
+ 
+When prompted, allow unauthenticated invocations (`y`) to make the service publicly accessible. On success, a public URL will be printed — open it in your browser to access the live ADK web UI.
+ 
+### 🌐 Live Demo
+ 
+👉 [https://school-agent-service-212846050244.europe-west1.run.app](https://school-agent-service-212846050244.europe-west1.run.app)
+ 
+---
